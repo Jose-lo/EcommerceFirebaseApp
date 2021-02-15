@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--TODO Step 2: Design the settings screen layout-->
+<!--START-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    tools:context="ui.activities.SettingsActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_settings_activity"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.example.nmkup.utils.MSPTextViewBold
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingStart="@dimen/toolbar_title_paddingStart"
+                android:paddingEnd="0dp"
+                android:text="@string/title_settings"
+                android:textColor="@color/black"
+                android:textSize="@dimen/toolbar_title_text_size"
+                android:textStyle="bold" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="350dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_settings_activity">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/iv_user_photo"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:contentDescription="@string/content_description"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_user_placeholder"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.example.nmkup.utils.MSPTextView
+                    android:id="@+id/tv_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/lbl_edit"
+                    android:textSize="@dimen/settings_edit_label_textSize"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <com.example.nmkup.utils.MSPTextViewBold
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textSize="@dimen/settings_name_textSize"
+                    app:layout_constraintStart_toEndOf="@+id/iv_user_photo"
+                    app:layout_constraintTop_toTopOf="@+id/iv_user_photo"
+                    tools:text="Denis Panjuta" />
+
+                <com.example.nmkup.utils.MSPTextView
+                    android:id="@+id/tv_gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_name"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:textSize="@dimen/settings_info_textSize"
+                    app:layout_constraintStart_toEndOf="@+id/iv_user_photo"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_name"
+                    tools:text="Male" />
+
+                <com.example.nmkup.utils.MSPTextView
+                    android:id="@+id/tv_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:textSize="@dimen/settings_info_textSize"
+                    app:layout_constraintStart_toEndOf="@+id/iv_user_photo"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_gender"
+                    tools:text="denis.panjuta@gmail.com" />
+
+                <com.example.nmkup.utils.MSPTextView
+                    android:id="@+id/tv_mobile_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_email"
+                    android:layout_marginTop="4dp"
+                    android:textSize="@dimen/settings_info_textSize"
+                    app:layout_constraintStart_toStartOf="@+id/tv_email"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_email"
+                    tools:text="123456789" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ll_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:foreground="?attr/selectableItemBackground"
+            android:orientation="horizontal"
+            android:padding="@dimen/settings_address_padding"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView">
+
+            <com.example.nmkup.utils.MSPTextView
+                android:id="@+id/MSPTextView5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/settings_lbl_addresses_margin"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:text="@string/lbl_addresses"
+                android:textSize="@dimen/settings_lbl_addresses_textSize"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="@string/content_description"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.example.nmkup.utils.MSPButton
+            android:id="@+id/btn_logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ll_address"
+            android:layout_gravity="center"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:elevation="8dp"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:paddingTop="@dimen/btn_padding"
+            android:paddingBottom="@dimen/btn_padding"
+            android:text="@string/btn_lbl_logout"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/btn_textSize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_address" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+    <!--END-->
