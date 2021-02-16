@@ -42,6 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="@dimen/cart_item_title_textSize"
+            android:textColor="@color/textColorPrimary"
             tools:text="Cart Item Title" />
 
         <RelativeLayout
@@ -54,6 +55,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
+                android:textColor="@color/textColorPrimary"
                 android:textSize="@dimen/cart_item_price_textSize"
                 android:textStyle="bold"
                 tools:text="$100" />
@@ -90,6 +92,7 @@
                     android:paddingBottom="@dimen/cart_quantity_paddingTopBottom"
                     android:textSize="@dimen/cart_quantity_textSize"
                     android:textStyle="bold"
+                    android:textColor="@color/textColorPrimary"
                     tools:text="1" />
 
                 <ImageButton

@@ -25,6 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="@dimen/item_address_name_textSize"
+            android:textColor="@color/textColorPrimary"
             tools:text="Denis Panjuta" />
 
         <com.example.nmkup.utils.MSPTextView
@@ -35,7 +36,8 @@
             android:paddingTop="@dimen/item_address_type_paddingTopBottom"
             android:paddingEnd="@dimen/item_address_type_paddingStartEnd"
             android:paddingBottom="@dimen/item_address_type_paddingTopBottom"
-            android:textColor="@color/white"
+            android:background="@drawable/item_brown_border_backgroun"
+            android:textColor="@color/textColorPrimary"
             android:textSize="@dimen/address_details_textSize"
             android:textStyle="bold"
             tools:text="Home" />
@@ -46,6 +48,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/address_details_marginTop"
+        android:textColor="@color/textColorPrimary"
         android:textSize="@dimen/address_details_textSize"
         tools:text="XYZ" />
 
@@ -55,6 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/address_details_marginTop"
         android:textSize="@dimen/address_details_textSize"
+        android:textColor="@color/textColorPrimary"
         tools:text="+64 123456789" />
 </LinearLayout>
     <!--END-->

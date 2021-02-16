@@ -23,7 +23,7 @@
             android:paddingStart="@dimen/toolbar_title_paddingStart"
             android:paddingEnd="0dp"
             android:text="@string/title_complete_profile"
-            android:textColor="@color/white"
+            android:textColor="@color/textColorPrimary"
             android:textSize="@dimen/toolbar_title_text_size"
             android:textStyle="bold" />
 
@@ -66,7 +66,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_first_name"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.Shrine.TextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -82,13 +82,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
+                    android:textColor="@color/textColorPrimary"
                     android:padding="@dimen/et_padding"
                     android:textSize="@dimen/et_textSize" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_last_name"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.Shrine.TextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -104,13 +105,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
+                    android:textColor="@color/textColorPrimary"
                     android:padding="@dimen/et_padding"
                     android:textSize="@dimen/et_textSize" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_email"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.Shrine.TextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -126,13 +128,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
+                    android:textColor="@color/textColorPrimary"
                     android:padding="@dimen/et_padding"
                     android:textSize="@dimen/et_textSize" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_mobile_number"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.Shrine.TextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -147,13 +150,12 @@
                     android:id="@+id/et_mobile_number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/textColorPrimary"
                     android:inputType="phone"
                     android:padding="@dimen/et_padding"
                     android:textSize="@dimen/et_textSize" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!--TODO Step 4: Add remaining design of the layout for user profile screen.-->
-            <!--START-->
             <RadioGroup
                 android:id="@+id/rg_gender"
                 android:layout_width="match_parent"
@@ -174,8 +176,10 @@
                     android:layout_marginEnd="@dimen/profile_radio_button_marginStartEnd"
                     android:layout_weight="1"
                     android:button="@null"
+                    android:background="@drawable/drawable_gender_tab_selector"
                     android:checked="true"
                     android:gravity="center"
+                    android:textColor="@drawable/drawable_gender_tab_text_color_selector"
                     android:text="@string/rb_lbl_male"
                     android:textStyle="bold" />
 
@@ -183,16 +187,19 @@
                     android:id="@+id/rb_female"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:background="@drawable/drawable_gender_tab_selector"
                     android:layout_marginStart="@dimen/profile_radio_button_marginStartEnd"
                     android:layout_weight="1"
                     android:button="@null"
                     android:gravity="center"
+                    android:textColor="@drawable/drawable_gender_tab_text_color_selector"
                     android:text="@string/rb_lbl_female"
                     android:textStyle="bold" />
             </RadioGroup>
 
-            <com.example.nmkup.utils.MSPButton
+            <Button
                 android:id="@+id/btn_submit"
+                style="@style/Widget.Shrine.Button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -205,7 +212,6 @@
                 android:paddingTop="@dimen/btn_padding"
                 android:paddingBottom="@dimen/btn_padding"
                 android:text="@string/btn_lbl_save"
-                android:textColor="@android:color/white"
                 android:textSize="@dimen/btn_textSize"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

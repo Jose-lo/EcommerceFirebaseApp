@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/wallpaper_two"
     tools:context=".ui.activities.CartListActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -22,7 +23,7 @@
             android:paddingStart="@dimen/toolbar_title_paddingStart"
             android:paddingEnd="0dp"
             android:text="@string/title_my_cart"
-            android:textColor="@color/white"
+            android:textColor="@color/textColorPrimary"
             android:textSize="@dimen/toolbar_title_text_size"
             android:textStyle="bold" />
 
@@ -39,6 +40,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar_cart_list_activity" />
 
+    <ImageView
+        android:id="@+id/img_no_cart_items_found"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/ic_baseline_error_outline_24"
+        app:layout_constraintBottom_toTopOf="@+id/tv_no_cart_item_found"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
     <com.example.nmkup.utils.MSPTextView
         android:id="@+id/tv_no_cart_item_found"
         android:layout_width="match_parent"
@@ -51,6 +63,7 @@
         android:textSize="@dimen/no_data_found_textSize"
         app:layout_constraintBottom_toTopOf="@id/ll_checkout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar_cart_list_activity" />
 
@@ -77,10 +90,12 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/lbl_subtotal"
+                android:textColor="@color/textColorPrimary"
                 android:textSize="@dimen/checkout_label_value_textSize" />
 
             <com.example.nmkup.utils.MSPTextView
                 android:id="@+id/tv_sub_total"
+                android:textColor="@color/textColorPrimary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
@@ -97,6 +112,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="@color/textColorPrimary"
                 android:text="@string/lbl_shipping_charge"
                 android:textSize="@dimen/checkout_label_value_textSize" />
 
@@ -105,6 +121,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
+                android:textColor="@color/textColorPrimary"
                 android:textSize="@dimen/checkout_label_value_textSize"
                 tools:text="$10" />
         </LinearLayout>
@@ -118,6 +135,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="@color/textColorPrimary"
                 android:text="@string/lbl_total_amount"
                 android:textSize="@dimen/checkout_label_value_textSize" />
 
@@ -126,12 +144,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
+                android:textColor="@color/textColorPrimary"
                 android:textSize="@dimen/checkout_label_value_textSize"
                 tools:text="$110" />
         </LinearLayout>
 
-        <com.example.nmkup.utils.MSPButton
+        <Button
             android:id="@+id/btn_checkout"
+            style="@style/Widget.Shrine.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -143,7 +163,6 @@
             android:paddingTop="@dimen/btn_padding"
             android:paddingBottom="@dimen/btn_padding"
             android:text="@string/btn_lbl_checkout"
-            android:textColor="@android:color/white"
             android:textSize="@dimen/btn_textSize"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>

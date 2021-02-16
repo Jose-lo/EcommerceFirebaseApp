@@ -3,6 +3,7 @@ package com.example.nellymakeup.ui.activities
 import android.os.Bundle
 import android.widget.Toast
 import com.example.nellymakeup.R
+import com.example.nellymakeup.application.goToActivity
 import com.example.nellymakeup.application.toast
 import com.example.nellymakeup.databinding.ActivityForgotPasswordBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -18,8 +19,15 @@ class ForgotPasswordActivity : BaseActivity() {
         binding = ActivityForgotPasswordBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setupActionBar()
         setUpForgotPassword()
+        backActivity()
+
+    }
+
+    private fun backActivity(){
+        binding.imgForgotPasswordBack.setOnClickListener {
+            goToActivity<LoginActivity> { finish() }
+        }
     }
 
     private fun setUpForgotPassword(){
@@ -51,14 +59,4 @@ class ForgotPasswordActivity : BaseActivity() {
 
     }
 
-    private fun setupActionBar(){
-        setSupportActionBar(binding.toolbarForgotPasswordActivity)
-
-        val actionBar = supportActionBar
-        if(actionBar != null){
-            actionBar.setDisplayHomeAsUpEnabled(true)
-            actionBar.setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_ios_24)
-        }
-        binding.toolbarForgotPasswordActivity.setNavigationOnClickListener{ onBackPressed()}
-    }
 }

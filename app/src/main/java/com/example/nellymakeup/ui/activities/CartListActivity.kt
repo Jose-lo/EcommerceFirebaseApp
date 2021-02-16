@@ -35,7 +35,7 @@ class CartListActivity : BaseActivity() {
         val actionBar = supportActionBar
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true)
-            actionBar.setHomeAsUpIndicator(R.drawable.ic_white_color_back_24dp)
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_black_color_back_24dp)
         }
 
         binding.toolbarCartListActivity.setNavigationOnClickListener { onBackPressed() }
@@ -65,6 +65,7 @@ class CartListActivity : BaseActivity() {
             binding.rvCartItemsList.show()
             binding.llCheckout.show()
             binding.tvNoCartItemFound.hide()
+            binding.imgNoCartItemsFound.hide()
 
             binding.rvCartItemsList.layoutManager = LinearLayoutManager(this@CartListActivity)
             binding.rvCartItemsList.setHasFixedSize(true)
@@ -103,6 +104,7 @@ class CartListActivity : BaseActivity() {
                 binding.rvCartItemsList.hide()
                 binding.llCheckout.hide()
                 binding.tvNoCartItemFound.show()
+                binding.imgNoCartItemsFound.show()
             }
 
         }

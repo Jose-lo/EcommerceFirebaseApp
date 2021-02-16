@@ -12,11 +12,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_no_dashboard_items_found"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/ic_baseline_error_outline_24"
+        app:layout_constraintBottom_toTopOf="@+id/tv_no_dashboard_items_found"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tv_no_dashboard_items_found"

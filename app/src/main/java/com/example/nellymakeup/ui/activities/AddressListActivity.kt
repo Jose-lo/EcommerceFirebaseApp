@@ -54,7 +54,7 @@ class AddressListActivity : BaseActivity() {
         val actionBar = supportActionBar
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true)
-            actionBar.setHomeAsUpIndicator(R.drawable.ic_white_color_back_24dp)
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_black_color_back_24dp)
         }
 
         binding.toolbarAddressListActivity.setNavigationOnClickListener { onBackPressed() }
@@ -72,15 +72,11 @@ class AddressListActivity : BaseActivity() {
 
         hideProgressDialog()
 
-        for (i in addressList) {
-
-            Log.i("Name and Address", "${i.name} ::  ${i.address}")
-        }
-
         if (addressList.size > 0) {
 
             binding.rvAddressList.show()
             binding.tvNoAddressFound.hide()
+            binding.imgNoAddressFound.hide()
 
             binding.rvAddressList.layoutManager = LinearLayoutManager(this@AddressListActivity)
             binding.rvAddressList.setHasFixedSize(true)
@@ -121,7 +117,8 @@ class AddressListActivity : BaseActivity() {
             }
         } else {
             binding.rvAddressList.hide()
-            binding.tvNoAddressFound.hide()
+            binding.tvNoAddressFound.show()
+            binding.imgNoAddressFound.show()
         }
     }
 

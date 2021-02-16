@@ -52,6 +52,7 @@ class OrderFragment : BaseFragment() {
 
             binding.rvMyOrderItems.show()
             binding.tvNoOrdersFound.hide()
+            binding.imgNoOrdersFound.hide()
 
             binding.rvMyOrderItems.layoutManager = LinearLayoutManager(activity)
             binding.rvMyOrderItems.setHasFixedSize(true)
@@ -61,6 +62,7 @@ class OrderFragment : BaseFragment() {
         } else {
             binding.rvMyOrderItems.hide()
             binding.tvNoOrdersFound.show()
+            binding.imgNoOrdersFound.show()
         }
 
     }

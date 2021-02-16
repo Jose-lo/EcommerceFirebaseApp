@@ -21,6 +21,7 @@
             android:gravity="center"
             android:paddingStart="@dimen/toolbar_title_paddingStart"
             android:paddingEnd="0dp"
+            android:textColor="@color/textColorPrimary"
             android:text="@string/create_an_account"
             android:textSize="@dimen/toolbar_title_text_size" />
 
@@ -39,7 +40,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_first_name"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.Shrine.TextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -56,12 +57,13 @@
                     android:layout_height="wrap_content"
                     android:inputType="text"
                     android:padding="@dimen/et_padding"
+                    android:textColor="@color/textColorPrimary"
                     android:textSize="@dimen/et_textSize" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_last_name"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.Shrine.TextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -77,13 +79,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
+                    android:textColor="@color/textColorPrimary"
                     android:padding="@dimen/et_padding"
                     android:textSize="@dimen/et_textSize" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_email"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.Shrine.TextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -99,13 +102,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
+                    android:textColor="@color/textColorPrimary"
                     android:padding="@dimen/et_padding"
                     android:textSize="@dimen/et_textSize" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_password"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.Shrine.TextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -121,13 +125,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
+                    android:textColor="@color/textColorPrimary"
                     android:padding="@dimen/et_padding"
                     android:textSize="@dimen/et_textSize" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_confirm_password"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.Shrine.TextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -143,6 +148,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
+                    android:textColor="@color/textColorPrimary"
                     android:padding="@dimen/et_padding"
                     android:textSize="@dimen/et_textSize" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -170,10 +176,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/txt_terms_condition_marginStart"
                     android:text="@string/i_agree_to_the_terms_and_condition"
+                    android:textColor="@color/textColorPrimary"
                     android:textSize="@dimen/txt_terms_and_condition_textSize" />
             </LinearLayout>
 
-            <com.example.nmkup.utils.MSPButton
+            <Button
                 android:id="@+id/btn_register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -182,12 +189,11 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="16dp"
                 android:foreground="?attr/selectableItemBackground"
+                style="@style/Widget.Shrine.Button"
                 android:gravity="center"
                 android:paddingTop="@dimen/btn_padding"
                 android:paddingBottom="@dimen/btn_padding"
                 android:text="@string/btn_lbl_register"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/btn_textSize"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ll_terms_and_condition" />
@@ -207,6 +213,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/clickable_text_view_padding"
+                    android:textColor="@color/textColorPrimary"
                     android:text="@string/already_have_an_account"
                     android:textSize="@dimen/lbl_text_view_textSize" />
 
@@ -215,6 +222,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:foreground="?attr/selectableItemBackground"
+                    android:textColor="@color/textColorPrimary"
                     android:padding="@dimen/clickable_text_view_padding"
                     android:text="@string/login"
                     android:textSize="@dimen/lbl_text_view_textSize" />

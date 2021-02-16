@@ -15,24 +15,24 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="please_wait">Please Wait&#8230;</string>
     <string name="content_description">image</string>
-    <string name="no_dashboard_item_found">No items found!</string>
+    <string name="no_dashboard_item_found">No se encontraron artículos</string>
 
     <string name="title_product_details">PRODUCT DETAILS</string>
-    <string name="lbl_product_description">Product Description</string>
-    <string name="lbl_product_details_stock_quantity">Stock Quantity</string>
+    <string name="lbl_product_description">Descripción</string>
+    <string name="lbl_product_details_stock_quantity">Cantidad de stock</string>
 
     <string name="please_click_back_again_to_exit">Please click back again to exit.</string>
 
-    <string name="btn_lbl_add_to_cart">ADD TO CART</string>
+    <string name="btn_lbl_add_to_cart">AGREGAR AL CARRITO</string>
     <string name="success_message_item_added_to_cart">Product is added to your cart.</string>
-    <string name="btn_lbl_go_to_cart">GO TO CART</string>
+    <string name="btn_lbl_go_to_cart">IR AL CARRITO</string>
 
-    <string name="title_my_cart">MY CART</string>
-    <string name="no_cart_item_found">No item found in cart!</string>
+    <string name="title_my_cart">MI CARRITO DE COMPRAS</string>
+    <string name="no_cart_item_found">No hay articulos en tu carro!</string>
     <string name="lbl_subtotal">Subtotal</string>
     <string name="lbl_shipping_charge">Shipping Charge</string>
     <string name="lbl_total_amount">Total Amount</string>
-    <string name="btn_lbl_checkout">Checkout</string>
+    <string name="btn_lbl_checkout">Comprar</string>
     <string name="action_cart">My Cart</string>
 
     <dimen name="rv_cart_items_marginTop">16dp</dimen>
@@ -43,25 +43,25 @@
     <string name="msg_item_removed_successfully">Item removed successfully.</string>
     <string name="msg_for_available_stock">Available stock is %1$s!. You can not add more than stock quantity.</string>
 
-    <string name="title_login">LOGIN</string>
-    <string name="et_hint_email_id">Email ID</string>
-    <string name="et_hint_password">Password</string>
-    <string name="lbl_forgot_password">Forgot Password?</string>
-    <string name="btn_lbl_login">Login</string>
-    <string name="don_t_have_an_account">Don\'t have an account?</string>
-    <string name="register"><u>Register</u></string>
+    <string name="title_login">INICIO DE SESIÓN</string>
+    <string name="et_hint_email_id">Email</string>
+    <string name="et_hint_password">Contraseña</string>
+    <string name="lbl_forgot_password">Has olvidado tu contraseña?</string>
+    <string name="btn_lbl_login">INICIAR SESIÓN</string>
+    <string name="don_t_have_an_account">No tienes cuenta?</string>
+    <string name="register"><u>Registrate</u></string>
 
-    <string name="create_an_account">CREATE AN ACCOUNT</string>
+    <string name="create_an_account">CREA UNA CUENTA</string>
 
-    <string name="hint_last_name">Last name</string>
-    <string name="hint_first_name">First name</string>
-    <string name="et_hint_confirm_password">Confirm Password</string>
+    <string name="hint_last_name">Apellidos</string>
+    <string name="hint_first_name">Nombres</string>
+    <string name="et_hint_confirm_password">Confirmar contraseña</string>
 
-    <string name="i_agree_to_the_terms_and_condition">I Agree To The <u> Terms &amp; Condition </u></string>
-    <string name="btn_lbl_register">Register</string>
+    <string name="i_agree_to_the_terms_and_condition">Estoy deacuerdo con los <u> Terminos &amp; Condiciones </u></string>
+    <string name="btn_lbl_register">Registrar</string>
 
-    <string name="already_have_an_account">Already have an account?</string>
-    <string name="login"><u>Login</u></string>
+    <string name="already_have_an_account">Ya tengo una cuenta?</string>
+    <string name="login"><u>Iniciar sesión</u></string>
 
     <string name="err_msg_enter_first_name">Please enter first name.</string>
     <string name="err_msg_enter_last_name">Please enter last name.</string>
@@ -72,19 +72,19 @@
     <string name="err_msg_agree_terms_and_condition">Please agree terms and condition.</string>
     <string name="registery_successfull">Thanks for registering!</string>
 
-    <string name="title_forgot_password">FORGOT PASSWORD?</string>
-    <string name="forgot_password_title_description">Enter your username and e-mail address we\'ll send you a email to reset your password</string>
-    <string name="btn_lbl_submit">Submit</string>
+    <string name="title_forgot_password">HAS OLVIDADO TU CONTRASEÑA?</string>
+    <string name="forgot_password_title_description">Ingrese su nombre de usuario y dirección de correo electrónico, le enviaremos un correo electrónico para restablecer su contraseña</string>
+    <string name="btn_lbl_submit">ENVIAR</string>
 
     <string name="email_sent_success">\"Email sent successfully to reset your password! \"</string>
 
     <string name="register_success">You are registered successfully</string>
 
-    <string name="title_complete_profile">COMPLETE PROFILE</string>
-    <string name="et_hint_mobile_number">Mobile Number</string>
-    <string name="rb_lbl_male">MALE</string>
-    <string name="rb_lbl_female">FEMALE</string>
-    <string name="btn_lbl_save">Save</string>
+    <string name="title_complete_profile">PERFIL COMPLETO</string>
+    <string name="et_hint_mobile_number">Numero telefonico</string>
+    <string name="rb_lbl_male">HOMBRE</string>
+    <string name="rb_lbl_female">MUJER</string>
+    <string name="btn_lbl_save">Guardar</string>
 
     <string name="read_storage_permission_denied">Oops, you just denied the permission for storage. You can also allow it from settings.</string>
 
@@ -94,27 +94,27 @@
 
     <string name="msg_profile_update_success">Your profile is updated successfully.</string>
 
-    <string name="title_settings">Setting</string>
+    <string name="title_settings">AJUSTES</string>
     <string name="lbl_edit">Edit</string>
-    <string name="lbl_addresses">Addresses</string>
+    <string name="lbl_addresses">Direcciones</string>
     <string name="btn_lbl_logout">Logout</string>
 
     <string name="title_edit_profile">EDIT PROFILE</string>
 
-    <string name="title_address_list">ADDRESS LIST</string>
-    <string name="no_address_found">No Address Found!</string>
-    <string name="lbL_add_address">Add Address</string>
+    <string name="title_address_list">LISTA DE DIRECCIONES</string>
+    <string name="no_address_found">No hay direcciones!</string>
+    <string name="lbL_add_address">Agregar dirección</string>
 
-    <string name="title_add_address">ADD ADDRESS</string>
-    <string name="hint_full_name">Full name</string>
-    <string name="hint_phone_number">Phone number</string>
-    <string name="hint_address">Address</string>
-    <string name="hint_zip_code">ZipCode</string>
-    <string name="hint_additional_note">Additional note</string>
-    <string name="hint_other_details">Other details</string>
-    <string name="lbl_home">HOME</string>
-    <string name="lbl_office">OFFICE</string>
-    <string name="lbl_other">OTHER</string>
+    <string name="title_add_address">AGREGAR DIRECCIÓN</string>
+    <string name="hint_full_name">Nombre completo</string>
+    <string name="hint_phone_number">Numero telefonico</string>
+    <string name="hint_address">Dirección</string>
+    <string name="hint_zip_code">Codigo postal</string>
+    <string name="hint_additional_note">Nota adicional</string>
+    <string name="hint_other_details">Otros detalles</string>
+    <string name="lbl_home">CASA</string>
+    <string name="lbl_office">OFICINA</string>
+    <string name="lbl_other">OTRO</string>
 
     <string name="err_msg_please_enter_full_name">Please enter full name.</string>
     <string name="err_msg_please_enter_phone_number">Please enter phone number.</string>
@@ -124,33 +124,33 @@
 
     <string name="err_your_address_added_successfully">Your address is added successfully.</string>
 
-    <string name="title_edit_address">EDIT ADDRESS</string>
-    <string name="btn_lbl_update">UPDATE</string>
-    <string name="err_your_address_deleted_successfully">Your address is deleted successfully.</string>
-    <string name="msg_your_address_updated_successfully">Your address is updated successfully.</string>
+    <string name="title_edit_address">EDITAR</string>
+    <string name="btn_lbl_update">ACTUALIZAR</string>
+    <string name="err_your_address_deleted_successfully">Su dirección se borro.</string>
+    <string name="msg_your_address_updated_successfully">Su direcciòn se actualizo.</string>
     <string name="title_select_address">SELECT ADDRESS</string>
 
-    <string name="title_checkout">CHECKOUT</string>
-    <string name="checkout_lbl_product_items">Product Items</string>
-    <string name="checkout_lbl_selected_address">Selected Address</string>
-    <string name="checkout_lbl_items_receipt">Items Receipt</string>
-    <string name="lbl_payment_mode">Payment Mode</string>
-    <string name="lbl_cash_on_delivery">Cash On Delivery</string>
-    <string name="btn_lbl_place_order">PLACE ORDER</string>
+    <string name="title_checkout">COMPRA</string>
+    <string name="checkout_lbl_product_items">Productos</string>
+    <string name="checkout_lbl_selected_address">Dirección</string>
+    <string name="checkout_lbl_items_receipt">Total a pagar</string>
+    <string name="lbl_payment_mode">Metodo de pago</string>
+    <string name="lbl_cash_on_delivery">Contra rembolso</string>
+    <string name="btn_lbl_place_order">ORDENAR</string>
 
-    <string name="no_orders_placed_yet">No orders placed yet!</string>
+    <string name="no_orders_placed_yet">Aún no hay pedidos!</string>
 
-    <string name="title_my_order_details">MY ORDER DETAILS</string>
-    <string name="order_details_lbl">Order Details</string>
-    <string name="order_details_lbl_order_id">Order ID</string>
-    <string name="order_details_lbl_order_date">Order Date</string>
-    <string name="order_details_lbl_order_status">Order Status</string>
-    <string name="order_status_pending">Pending</string>
-    <string name="order_details_lbl_shipping_address">Shipping Address</string>
+    <string name="title_my_order_details">MIS PEDIDOS</string>
+    <string name="order_details_lbl">Detalle del pedido</string>
+    <string name="order_details_lbl_order_id">ID del pedido</string>
+    <string name="order_details_lbl_order_date">Fecha del pedido</string>
+    <string name="order_details_lbl_order_status">Status del pedido</string>
+    <string name="order_status_pending">Pendiente</string>
+    <string name="order_details_lbl_shipping_address">Direccion de entrega</string>
 
-    <string name="order_status_in_process">In Process</string>
-    <string name="order_status_delivered">Delivered</string>
-    <string name="edit_user_date">Edit</string>
+    <string name="order_status_in_process">En proceso</string>
+    <string name="order_status_delivered">Entregado</string>
+    <string name="edit_user_date">Editar</string>
     <string name="edit_direction_list">Libreta de direcciones</string>
     <string name="edit_my_cart">Mis compras</string>
 

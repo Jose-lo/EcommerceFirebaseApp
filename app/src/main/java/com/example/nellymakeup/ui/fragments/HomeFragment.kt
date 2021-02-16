@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.nellymakeup.R
 import com.example.nellymakeup.application.hide
 import com.example.nellymakeup.application.show
@@ -50,6 +51,10 @@ class HomeFragment :BaseFragment() {
 
             binding.rvDashboardItems.show()
             binding.tvNoDashboardItemsFound.hide()
+            binding.imgNoDashboardItemsFound.hide()
+            binding.rvDashboardItems.setHasFixedSize(true)
+
+            binding.rvDashboardItems.layoutManager = GridLayoutManager(activity, 2,RecyclerView.VERTICAL,false)
             binding.rvDashboardItems.setHasFixedSize(true)
 
             val adapter = DashboardItemsListAdapter(requireActivity(), dashboardItemsList)
@@ -57,6 +62,7 @@ class HomeFragment :BaseFragment() {
         } else {
             binding.rvDashboardItems.hide()
             binding.tvNoDashboardItemsFound.show()
+            binding.imgNoDashboardItemsFound.show()
         }
     }
 

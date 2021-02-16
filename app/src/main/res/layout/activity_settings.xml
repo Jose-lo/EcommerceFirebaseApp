@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--TODO Step 2: Design the settings screen layout-->
-<!--START-->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -77,6 +75,8 @@
                     android:layout_marginBottom="16dp"
                     android:text="@string/lbl_edit"
                     android:textSize="@dimen/settings_edit_label_textSize"
+                    android:textColor="@color/textColorPrimary"
+                    android:background="@drawable/item_brown_border_backgroun"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent" />
 
@@ -86,6 +86,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:textSize="@dimen/settings_name_textSize"
+                    android:textColor="@color/textColorPrimary"
                     app:layout_constraintStart_toEndOf="@+id/iv_user_photo"
                     app:layout_constraintTop_toTopOf="@+id/iv_user_photo"
                     tools:text="Denis Panjuta" />
@@ -99,6 +100,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="4dp"
                     android:textSize="@dimen/settings_info_textSize"
+                    android:textColor="@color/textColorPrimary"
                     app:layout_constraintStart_toEndOf="@+id/iv_user_photo"
                     app:layout_constraintTop_toBottomOf="@+id/tv_name"
                     tools:text="Male" />
@@ -111,6 +113,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="4dp"
                     android:textSize="@dimen/settings_info_textSize"
+                    android:textColor="@color/textColorPrimary"
                     app:layout_constraintStart_toEndOf="@+id/iv_user_photo"
                     app:layout_constraintTop_toBottomOf="@+id/tv_gender"
                     tools:text="denis.panjuta@gmail.com" />
@@ -122,6 +125,7 @@
                     android:layout_below="@id/tv_email"
                     android:layout_marginTop="4dp"
                     android:textSize="@dimen/settings_info_textSize"
+                    android:textColor="@color/textColorPrimary"
                     app:layout_constraintStart_toStartOf="@+id/tv_email"
                     app:layout_constraintTop_toBottomOf="@+id/tv_email"
                     tools:text="123456789" />
@@ -138,6 +142,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="32dp"
+            android:background="@drawable/item_brown_border_backgroun"
             android:foreground="?attr/selectableItemBackground"
             android:orientation="horizontal"
             android:padding="@dimen/settings_address_padding"
@@ -153,6 +158,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_weight="1"
                 android:text="@string/lbl_addresses"
+                android:textColor="@color/textColorPrimary"
                 android:textSize="@dimen/settings_lbl_addresses_textSize"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -169,8 +175,9 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <com.example.nmkup.utils.MSPButton
+        <Button
             android:id="@+id/btn_logout"
+            style="@style/Widget.Shrine.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/ll_address"
@@ -184,7 +191,6 @@
             android:paddingTop="@dimen/btn_padding"
             android:paddingBottom="@dimen/btn_padding"
             android:text="@string/btn_lbl_logout"
-            android:textColor="@android:color/white"
             android:textSize="@dimen/btn_textSize"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

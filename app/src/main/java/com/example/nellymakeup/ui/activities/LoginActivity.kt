@@ -25,11 +25,17 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
         setContentView(binding.root)
 
         registerBtn()
+        backActivity()
 
+    }
+    private fun backActivity(){
+        binding.imgLoginBack.setOnClickListener {
+            goToActivity<MainActivity> { finish() }
+        }
     }
 
     private fun registerBtn() {
-        binding.tvDonTHaveAnAccount.setOnClickListener(this)
+        binding.tvForgotPassword.setOnClickListener(this)
         binding.btnLogin.setOnClickListener(this)
         binding.tvRegister.setOnClickListener(this)
     }

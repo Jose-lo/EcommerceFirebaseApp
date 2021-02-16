@@ -25,7 +25,6 @@ class DetailsActivity : BaseActivity(), View.OnClickListener {
         setContentView(R.layout.activity_details)
         binding = ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setupActionBar()
 
         if(intent.hasExtra(Constants.EXTRA_PRODUCT_ID)){
             mProductID = intent.getStringExtra(Constants.EXTRA_PRODUCT_ID)!!
@@ -48,18 +47,13 @@ class DetailsActivity : BaseActivity(), View.OnClickListener {
         getProductDetails()
         binding.btnAddToCart.setOnClickListener (this)
         binding.btnGoToCart.setOnClickListener(this)
+        backActivity()
     }
-    private fun setupActionBar() {
 
-        setSupportActionBar(binding.toolbarProductDetailsActivity)
-
-        val actionBar = supportActionBar
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true)
-            actionBar.setHomeAsUpIndicator(R.drawable.ic_white_color_back_24dp)
+    private fun backActivity(){
+        binding.imgDetailBack.setOnClickListener {
+            goToActivity<MainActivity> { finish() }
         }
-
-        binding.toolbarProductDetailsActivity.setNavigationOnClickListener { onBackPressed() }
     }
 
     private fun getProductDetails() {

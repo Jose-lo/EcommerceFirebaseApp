@@ -47,7 +47,7 @@ class RegisterActivity : BaseActivity() {
         val actionBar = supportActionBar
         if(actionBar != null){
             actionBar.setDisplayHomeAsUpEnabled(true)
-            actionBar.setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_ios_24)
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_black_color_back_24dp)
         }
         binding.toolbarRegisterActivity.setNavigationOnClickListener{ onBackPressed()}
     }

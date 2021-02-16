@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="@drawable/wallpaper_two"
     tools:context=".ui.fragments.UserFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,23 +18,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="400dp"
-            android:text="Create your account"
+            android:text="Crea tu cuenta"
+            android:textColor="@color/textColorPrimary"
             android:textSize="28sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.example.nmkup.utils.MSPButton
+        <Button
             android:id="@+id/btn_pass_login"
+            style="@style/Widget.Shrine.Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="86dp"
-            android:textStyle="bold"
             android:textSize="18sp"
             android:layout_marginEnd="16dp"
-            android:text="Login with mail"
+            android:text="Iniciar con correo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/MSPTextViewBold" />
@@ -67,7 +68,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="Hola"
-            android:textColor="@color/black"
+            android:textColor="@color/textColorPrimary"
             android:textSize="32sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
@@ -78,13 +79,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="@string/app_name"
-            android:textColor="@color/black"
+            android:textColor="@color/textColorPrimary"
             android:textSize="22sp"
             app:layout_constraintStart_toStartOf="@+id/MSPTextViewBold2"
             app:layout_constraintTop_toBottomOf="@+id/MSPTextViewBold2" />
 
-        <com.example.nmkup.utils.MSPButton
+        <Button
             android:id="@+id/btn_user_logout"
+            style="@style/Widget.Shrine.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -113,7 +115,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="Tus datos"
-            android:textColor="@color/black"
+            android:textColor="@color/textColorPrimary"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider" />
@@ -124,7 +126,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:text="@string/edit_user_date"
-            android:textColor="@color/teal_200"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/divider2"
             app:layout_constraintEnd_toEndOf="parent"
@@ -149,7 +151,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/edit_direction_list"
-            android:textColor="@color/black"
+            android:textColor="@color/textColorPrimary"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider2" />
@@ -159,7 +161,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:text="@string/edit_user_date"
-            android:textColor="@color/teal_200"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/divider3"
             app:layout_constraintEnd_toEndOf="parent"
@@ -184,7 +186,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/edit_my_cart"
-            android:textColor="@color/black"
+            android:textColor="@color/textColorPrimary"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider3" />
@@ -206,7 +208,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:text="@string/edit_user_date"
-            android:textColor="@color/teal_200"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/divider4"
             app:layout_constraintEnd_toEndOf="parent"
