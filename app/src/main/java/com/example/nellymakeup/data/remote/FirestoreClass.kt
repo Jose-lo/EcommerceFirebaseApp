@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import android.net.Uri
 import android.util.Log
 import com.example.nellymakeup.application.Constants
+import com.example.nellymakeup.application.Resource
 import com.example.nellymakeup.data.model.*
 import com.example.nellymakeup.ui.activities.*
 import com.example.nellymakeup.ui.fragments.HomeFragment
@@ -15,6 +16,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import kotlinx.coroutines.tasks.await
 
 
 class FirestoreClass {
@@ -32,6 +34,7 @@ class FirestoreClass {
         return currentUserID
     }
 
+    /*
     fun getDashboardItemsList(fragment: HomeFragment) {
         mFireStore.collection(Constants.PRODUCTS)
             .get()
@@ -54,6 +57,19 @@ class FirestoreClass {
                 fragment.hideProgressDialog()
                 Log.e(fragment.javaClass.simpleName, "Error while getting dashboard items list.", e)
             }
+    }
+
+     */
+
+    suspend fun getDashboardItemsList():Resource<List<Product>>{
+        val dashboardList = mutableListOf<Product>()
+        val querySnapshot = FirebaseFirestore.getInstance().collection(Constants.PRODUCTS).get().await()
+        for(product in querySnapshot.documents){
+            product.toObject(Product::class.java)?.let {
+                it.product_id  = product.id
+                dashboardList.add(it) }
+        }
+        return Resource.Success(dashboardList)
     }
 
 

@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.item_product_layout.view.*
 
 open class DashboardItemsListAdapter(
     private val context: Context,
-    private var list: ArrayList<Product>
+    private var list: List<Product>
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
