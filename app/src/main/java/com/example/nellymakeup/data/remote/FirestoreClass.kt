@@ -57,25 +57,15 @@ class FirestoreClass {
 
     }
 
-    fun addCartItems(activity: DetailsActivity, addToCart: CartItem) {
+    suspend fun addCartItems(activity: DetailsActivity, addToCart: CartItem) {
 
         mFireStore.collection(Constants.CART_ITEMS)
             .document()
             .set(addToCart, SetOptions.merge())
-            .addOnSuccessListener {
+            .await()
 
-                activity.addToCartSuccess()
-            }
-            .addOnFailureListener { e ->
+        activity.addToCartSuccess()
 
-                activity.hideProgressDialog()
-
-                Log.e(
-                    activity.javaClass.simpleName,
-                    "Error while creating the document for cart item.",
-                    e
-                )
-            }
     }
 
     fun checkIfItemExistInCart(activity: DetailsActivity, productId: String) {

@@ -1,9 +1,7 @@
 package com.example.nellymakeup.ui.activities
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import com.example.nellymakeup.R
@@ -21,7 +19,7 @@ import kotlinx.android.synthetic.main.activity_details.*
 
 class DetailsActivity : BaseActivity(), View.OnClickListener {
 
-    private val viewmode by viewModels<DetailScreenModel> { ViewModelFactory(RepositoryImpl(
+    private val viewmodel by viewModels<DetailScreenModel> { ViewModelFactory(RepositoryImpl(
         RemoteDataSource(FirestoreClass())
     )) }
     private lateinit var binding:ActivityDetailsBinding
@@ -67,7 +65,7 @@ class DetailsActivity : BaseActivity(), View.OnClickListener {
     private fun getProductDetails() {
 
         showProgressDialog(resources.getString(R.string.please_wait))
-        viewmode.getProductDetails(this,mProductID)
+        viewmodel.getProductDetails(this,mProductID)
     }
 
     fun productDetailsSuccess(product: Product) {
@@ -138,7 +136,7 @@ class DetailsActivity : BaseActivity(), View.OnClickListener {
             Constants.DEFAULT_CART_QUANTITY
         )
         showProgressDialog(resources.getString(R.string.please_wait))
-        FirestoreClass().addCartItems(this,addToCart)
+        viewmodel.addCartItems(this,addToCart)
     }
 
     fun addToCartSuccess() {
