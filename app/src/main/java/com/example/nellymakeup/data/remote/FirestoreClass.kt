@@ -34,32 +34,6 @@ class FirestoreClass {
         return currentUserID
     }
 
-    /*
-    fun getDashboardItemsList(fragment: HomeFragment) {
-        mFireStore.collection(Constants.PRODUCTS)
-            .get()
-            .addOnSuccessListener { document ->
-                Log.e(fragment.javaClass.simpleName, document.documents.toString())
-
-                val productsList: ArrayList<Product> = ArrayList()
-
-                for (i in document.documents) {
-
-                    val product = i.toObject(Product::class.java)!!
-                    product.product_id = i.id
-                    productsList.add(product)
-                }
-
-                fragment.successHomeItemsList(productsList)
-            }
-            .addOnFailureListener { e ->
-
-                fragment.hideProgressDialog()
-                Log.e(fragment.javaClass.simpleName, "Error while getting dashboard items list.", e)
-            }
-    }
-
-     */
 
     suspend fun getDashboardItemsList():Resource<List<Product>>{
         val dashboardList = mutableListOf<Product>()
@@ -73,27 +47,14 @@ class FirestoreClass {
     }
 
 
-    fun getProductDetails(activity: DetailsActivity, productId: String) {
+   suspend fun getProductDetails(activity: DetailsActivity, productId: String) {
 
-        mFireStore.collection(Constants.PRODUCTS)
+       val document =  mFireStore.collection(Constants.PRODUCTS)
             .document(productId)
-            .get()
-            .addOnSuccessListener { document ->
+            .get().await()
+       val product = document.toObject(Product::class.java)!!
+       activity.productDetailsSuccess(product)
 
-                Log.e(activity.javaClass.simpleName, document.toString())
-
-                val product = document.toObject(Product::class.java)!!
-
-                activity.productDetailsSuccess(product)
-
-            }
-            .addOnFailureListener { e ->
-
-
-                activity.hideProgressDialog()
-
-                Log.e(activity.javaClass.simpleName, "Error while getting the product details.", e)
-            }
     }
 
     fun addCartItems(activity: DetailsActivity, addToCart: CartItem) {

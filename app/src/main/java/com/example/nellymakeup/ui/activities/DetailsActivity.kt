@@ -4,18 +4,26 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import com.example.nellymakeup.R
 import com.example.nellymakeup.application.*
 import com.example.nellymakeup.data.model.CartItem
 import com.example.nellymakeup.data.model.Product
 import com.example.nellymakeup.data.remote.FirestoreClass
+import com.example.nellymakeup.data.remote.RemoteDataSource
 import com.example.nellymakeup.databinding.ActivityDetailsBinding
+import com.example.nellymakeup.presentation.DetailScreenModel
+import com.example.nellymakeup.presentation.ViewModelFactory
+import com.example.nellymakeup.repository.RepositoryImpl
 import com.example.nmkup.utils.GlideLoader
 import kotlinx.android.synthetic.main.activity_details.*
 
 class DetailsActivity : BaseActivity(), View.OnClickListener {
 
+    private val viewmode by viewModels<DetailScreenModel> { ViewModelFactory(RepositoryImpl(
+        RemoteDataSource(FirestoreClass())
+    )) }
     private lateinit var binding:ActivityDetailsBinding
     private var mProductID : String = ""
     private lateinit var mProductDetails: Product
@@ -59,7 +67,7 @@ class DetailsActivity : BaseActivity(), View.OnClickListener {
     private fun getProductDetails() {
 
         showProgressDialog(resources.getString(R.string.please_wait))
-        FirestoreClass().getProductDetails(this@DetailsActivity, mProductID)
+        viewmode.getProductDetails(this,mProductID)
     }
 
     fun productDetailsSuccess(product: Product) {
