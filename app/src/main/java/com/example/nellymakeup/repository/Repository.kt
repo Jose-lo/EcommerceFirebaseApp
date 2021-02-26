@@ -10,4 +10,5 @@ interface Repository {
     suspend fun getDashboardItemsList(): Resource<List<Product>>
     suspend fun getProductDetails(activity: DetailsActivity, productId: String)
     suspend fun addCartItems(activity: DetailsActivity, addToCart: CartItem)
+    suspend fun checkIfItemExistInCart(activity: DetailsActivity, productId: String)
 }

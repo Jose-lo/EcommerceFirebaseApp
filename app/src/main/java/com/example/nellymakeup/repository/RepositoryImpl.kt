@@ -19,4 +19,8 @@ class RepositoryImpl(private val remoteDataSource: RemoteDataSource): Repository
     override suspend fun addCartItems(activity: DetailsActivity, addToCart: CartItem) {
         remoteDataSource.addCartItems(activity,addToCart)
     }
+
+    override suspend fun checkIfItemExistInCart(activity: DetailsActivity, productId: String) {
+        remoteDataSource.checkIfItemExistInCart(activity,productId)
+    }
 }

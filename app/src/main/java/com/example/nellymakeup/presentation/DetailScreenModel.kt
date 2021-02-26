@@ -20,4 +20,10 @@ class DetailScreenModel(private val repo: Repository): ViewModel() {
             repo.addCartItems(activity,addToCart)
         }
     }
+
+    fun checkIfItemExistInCart(activity: DetailsActivity, productId: String){
+        viewModelScope.launch {
+            repo.checkIfItemExistInCart(activity,productId)
+        }
+    }
 }

@@ -68,33 +68,19 @@ class FirestoreClass {
 
     }
 
-    fun checkIfItemExistInCart(activity: DetailsActivity, productId: String) {
+    suspend fun checkIfItemExistInCart(activity: DetailsActivity, productId: String) {
 
-        mFireStore.collection(Constants.CART_ITEMS)
-            .whereEqualTo(Constants.USER_ID,getCurrentUserID())
+        val document = mFireStore.collection(Constants.CART_ITEMS)
+            .whereEqualTo(Constants.USER_ID, getCurrentUserID())
             .whereEqualTo(Constants.PRODUCT_ID, productId)
-            .get()
-            .addOnSuccessListener { document ->
+            .get().await()
 
-                Log.e(activity.javaClass.simpleName, document.documents.toString())
+        if (document.documents.size > 0) {
+            activity.productExistsInCart()
+        } else {
+            activity.hideProgressDialog()
+        }
 
-                if (document.documents.size > 0) {
-                    activity.productExistsInCart()
-                } else {
-                    activity.hideProgressDialog()
-                }
-
-            }
-            .addOnFailureListener { e ->
-
-                activity.hideProgressDialog()
-
-                Log.e(
-                    activity.javaClass.simpleName,
-                    "Error while checking the existing cart list.",
-                    e
-                )
-            }
     }
 
     fun getCartList(activity: Activity) {

@@ -18,4 +18,8 @@ class RemoteDataSource(private val firestoreClass: FirestoreClass) {
     suspend fun addCartItems(activity: DetailsActivity, addToCart: CartItem){
         firestoreClass.addCartItems(activity,addToCart)
     }
+
+    suspend fun checkIfItemExistInCart(activity: DetailsActivity, productId: String){
+        firestoreClass.checkIfItemExistInCart(activity, productId)
+    }
 }

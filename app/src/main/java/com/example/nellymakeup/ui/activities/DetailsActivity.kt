@@ -102,7 +102,7 @@ class DetailsActivity : BaseActivity(), View.OnClickListener {
             if (FirestoreClass().getCurrentUserID() == product.user_id) {
                 hideProgressDialog()
             } else {
-                FirestoreClass().checkIfItemExistInCart(this@DetailsActivity, mProductID)
+                viewmodel.checkIfItemExistInCart(this,mProductID)
             }
         }
     }
