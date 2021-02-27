@@ -27,4 +27,8 @@ class RemoteDataSource(private val firestoreClass: FirestoreClass) {
     suspend fun getCartList(activity: Activity){
         firestoreClass.getCartList(activity)
     }
+
+    suspend fun getAllProductsList(activity: Activity){
+        firestoreClass.getAllProductsList(activity)
+    }
 }

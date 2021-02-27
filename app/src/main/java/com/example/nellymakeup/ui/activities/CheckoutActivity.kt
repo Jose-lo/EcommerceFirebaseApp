@@ -80,7 +80,7 @@ class CheckoutActivity : BaseActivity() {
 
         showProgressDialog(resources.getString(R.string.please_wait))
 
-        FirestoreClass().getAllProductsList(this@CheckoutActivity)
+        viewmodel.getAllProductsList(this)
     }
 
     fun successProductsListFromFireStore(productsList: ArrayList<Product>) {

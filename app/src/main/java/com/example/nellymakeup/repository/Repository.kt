@@ -13,4 +13,5 @@ interface Repository {
     suspend fun addCartItems(activity: DetailsActivity, addToCart: CartItem)
     suspend fun checkIfItemExistInCart(activity: DetailsActivity, productId: String)
     suspend fun getCartList(activity: Activity)
+    suspend fun getAllProductsList(activity: Activity)
 }

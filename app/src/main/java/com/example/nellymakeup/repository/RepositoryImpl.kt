@@ -28,4 +28,8 @@ class RepositoryImpl(private val remoteDataSource: RemoteDataSource): Repository
     override suspend fun getCartList(activity: Activity) {
         remoteDataSource.getCartList(activity)
     }
+
+    override suspend fun getAllProductsList(activity: Activity) {
+        remoteDataSource.getAllProductsList(activity)
+    }
 }

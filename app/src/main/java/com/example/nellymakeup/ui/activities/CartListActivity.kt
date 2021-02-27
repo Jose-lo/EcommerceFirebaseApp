@@ -139,7 +139,7 @@ class CartListActivity : BaseActivity() {
         private fun getProductList() {
 
             showProgressDialog(resources.getString(R.string.please_wait))
-            FirestoreClass().getAllProductsList(this@CartListActivity)
+            viewmodel.getAllProductsList(this)
         }
 
     fun itemRemovedSuccess() {

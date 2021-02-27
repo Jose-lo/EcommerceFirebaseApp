@@ -104,42 +104,26 @@ class FirestoreClass {
                 }
     }
 
-    fun getAllProductsList(activity: Activity) {
+    suspend fun getAllProductsList(activity: Activity) {
 
-        mFireStore.collection(Constants.PRODUCTS)
-            .get()
-            .addOnSuccessListener { document ->
+        val document = mFireStore.collection(Constants.PRODUCTS)
+            .get().await()
 
-                Log.e("Products List", document.documents.toString())
-
-                val productsList: ArrayList<Product> = ArrayList()
-
-                for (i in document.documents) {
-
-                    val product = i.toObject(Product::class.java)
-                    product!!.product_id = i.id
-
-                    productsList.add(product)
-                }
-                when(activity){
-                    is CartListActivity ->{
-                        activity.successProductsListFromFireStore(productsList)
-                    }
-                    is CheckoutActivity ->{
-                        activity.successProductsListFromFireStore(productsList)
-                    }
-                }
-
+        val productsList: ArrayList<Product> = ArrayList()
+        for (i in document.documents) {
+            val product = i.toObject(Product::class.java)
+            product!!.product_id = i.id
+            productsList.add(product)
+        }
+        when (activity) {
+            is CartListActivity -> {
+                activity.successProductsListFromFireStore(productsList)
             }
-
-            .addOnFailureListener { e ->
-                when(activity){
-                    is CartListActivity ->{
-                        activity.hideProgressDialog()
-
-                    }
-                }
+            is CheckoutActivity -> {
+                activity.successProductsListFromFireStore(productsList)
             }
+        }
+
     }
 
 

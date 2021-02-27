@@ -13,4 +13,10 @@ class CheckoutScreenViewModel(private val repo: Repository): ViewModel() {
             repo.getCartList(activity)
         }
     }
+
+    fun getAllProductsList(activity: Activity){
+        viewModelScope.launch {
+            repo.getAllProductsList(activity)
+        }
+    }
 }
