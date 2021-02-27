@@ -4,18 +4,27 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nellymakeup.R
 import com.example.nellymakeup.application.*
 import com.example.nellymakeup.data.model.CartItem
 import com.example.nellymakeup.data.model.Product
 import com.example.nellymakeup.data.remote.FirestoreClass
+import com.example.nellymakeup.data.remote.RemoteDataSource
 import com.example.nellymakeup.databinding.ActivityCartListBinding
+import com.example.nellymakeup.presentation.CartListScreenViewModel
+import com.example.nellymakeup.presentation.DetailScreenViewModel
+import com.example.nellymakeup.presentation.ViewModelFactory
+import com.example.nellymakeup.repository.RepositoryImpl
 import com.example.nellymakeup.ui.adapters.CartItemsListAdapter
 import kotlinx.android.synthetic.main.activity_cart_list.*
 
 class CartListActivity : BaseActivity() {
 
+    private val viewmodel by viewModels<CartListScreenViewModel> { ViewModelFactory(RepositoryImpl(
+        RemoteDataSource(FirestoreClass())
+    )) }
     private lateinit var binding:ActivityCartListBinding
     private lateinit var mProductsList: ArrayList<Product>
     private lateinit var mCartListItems: ArrayList<CartItem>
@@ -112,7 +121,7 @@ class CartListActivity : BaseActivity() {
         private fun getCartItemsList() {
 
             showProgressDialog(resources.getString(R.string.please_wait))
-            FirestoreClass().getCartList(this@CartListActivity)
+            viewmodel.getCartList(this)
         }
 
         override fun onResume() {

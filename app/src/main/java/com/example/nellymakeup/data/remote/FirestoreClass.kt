@@ -83,25 +83,17 @@ class FirestoreClass {
 
     }
 
-    fun getCartList(activity: Activity) {
+    suspend fun getCartList(activity: Activity) {
 
-        mFireStore.collection(Constants.CART_ITEMS)
+        val document = mFireStore.collection(Constants.CART_ITEMS)
             .whereEqualTo(Constants.USER_ID, getCurrentUserID())
-            .get()
-            .addOnSuccessListener { document ->
-
-                Log.e(activity.javaClass.simpleName, document.documents.toString())
-
+            .get().await()
                 val list: ArrayList<CartItem> = ArrayList()
-
                 for (i in document.documents) {
-
                     val cartItem = i.toObject(CartItem::class.java)!!
                     cartItem.id = i.id
-
                     list.add(cartItem)
                 }
-
                 when (activity) {
                     is CartListActivity -> {
                         activity.successCartItemsList(list)
@@ -110,21 +102,6 @@ class FirestoreClass {
                         activity.successCartItemsList(list)
                     }
                 }
-
-            }
-            .addOnFailureListener { e ->
-                when (activity) {
-                    is CartListActivity -> {
-                        activity.hideProgressDialog()
-                    }
-                    is CheckoutActivity -> {
-                        activity.hideProgressDialog()
-                    }
-                }
-
-                Log.e(activity.javaClass.simpleName, "Error while getting the cart list items.", e)
-            }
-
     }
 
     fun getAllProductsList(activity: Activity) {

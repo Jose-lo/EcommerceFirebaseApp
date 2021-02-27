@@ -1,5 +1,6 @@
 package com.example.nellymakeup.repository
 
+import android.app.Activity
 import com.example.nellymakeup.application.Resource
 import com.example.nellymakeup.data.model.CartItem
 import com.example.nellymakeup.data.model.Product
@@ -22,5 +23,9 @@ class RepositoryImpl(private val remoteDataSource: RemoteDataSource): Repository
 
     override suspend fun checkIfItemExistInCart(activity: DetailsActivity, productId: String) {
         remoteDataSource.checkIfItemExistInCart(activity,productId)
+    }
+
+    override suspend fun getCartList(activity: Activity) {
+        remoteDataSource.getCartList(activity)
     }
 }

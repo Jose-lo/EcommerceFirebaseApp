@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nellymakeup.R
 import com.example.nellymakeup.application.*
@@ -12,11 +13,19 @@ import com.example.nellymakeup.data.model.CartItem
 import com.example.nellymakeup.data.model.Order
 import com.example.nellymakeup.data.model.Product
 import com.example.nellymakeup.data.remote.FirestoreClass
+import com.example.nellymakeup.data.remote.RemoteDataSource
 import com.example.nellymakeup.databinding.ActivityCheckoutBinding
+import com.example.nellymakeup.presentation.CheckoutScreenViewModel
+import com.example.nellymakeup.presentation.ViewModelFactory
+import com.example.nellymakeup.repository.RepositoryImpl
 import com.example.nellymakeup.ui.adapters.CartItemsListAdapter
 import kotlinx.android.synthetic.main.activity_checkout.*
 
 class CheckoutActivity : BaseActivity() {
+
+    private val viewmodel by viewModels<CheckoutScreenViewModel> { ViewModelFactory(RepositoryImpl(
+        RemoteDataSource(FirestoreClass())
+    )) }
 
     private lateinit var binding: ActivityCheckoutBinding
     private var mAddressDetails: Address? = null
@@ -81,8 +90,7 @@ class CheckoutActivity : BaseActivity() {
     }
 
     private fun getCartItemsList() {
-
-        FirestoreClass().getCartList(this@CheckoutActivity)
+        viewmodel.getCartList(this)
     }
 
     fun successCartItemsList(cartList: ArrayList<CartItem>) {
