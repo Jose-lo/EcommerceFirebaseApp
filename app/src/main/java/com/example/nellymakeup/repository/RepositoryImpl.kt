@@ -37,4 +37,12 @@ class RepositoryImpl(private val remoteDataSource: RemoteDataSource): Repository
     override suspend fun removeItemFromCart(context: Context, cart_id: String) {
         remoteDataSource.removeItemFromCart(context,cart_id)
     }
+
+    override suspend fun updateMyCart(
+        context: Context,
+        cart_id: String,
+        itemHashMap: HashMap<String, Any>
+    ) {
+        remoteDataSource.updateMyCart(context,cart_id,itemHashMap)
+    }
 }

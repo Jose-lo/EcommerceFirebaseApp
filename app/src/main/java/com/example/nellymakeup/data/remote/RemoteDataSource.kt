@@ -36,4 +36,8 @@ class RemoteDataSource(private val firestoreClass: FirestoreClass) {
     suspend fun removeItemFromCart(context: Context, cart_id: String){
         firestoreClass.removeItemFromCart(context,cart_id)
     }
+
+    suspend fun updateMyCart(context: Context, cart_id: String, itemHashMap: HashMap<String, Any>){
+        firestoreClass.updateMyCart(context,cart_id,itemHashMap)
+    }
 }

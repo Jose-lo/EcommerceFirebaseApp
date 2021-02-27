@@ -104,7 +104,7 @@ open class CartItemsListAdapter(
                         context.showProgressDialog(context.resources.getString(R.string.please_wait))
                     }
 
-                    FirestoreClass().updateMyCart(context, model.id, itemHashMap)
+                    viewmodel.updateMyCart(context,model.id,itemHashMap)
                 }
 
             }
@@ -124,7 +124,7 @@ open class CartItemsListAdapter(
                         context.showProgressDialog(context.resources.getString(R.string.please_wait))
                     }
 
-                    FirestoreClass().updateMyCart(context, model.id, itemHashMap)
+                    viewmodel.updateMyCart(context,model.id,itemHashMap)
                 } else {
                     if (context is CartListActivity) {
                         context.showErrorSnackBar(

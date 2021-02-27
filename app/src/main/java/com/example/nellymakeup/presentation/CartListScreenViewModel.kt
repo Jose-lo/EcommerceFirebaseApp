@@ -26,4 +26,10 @@ class CartListScreenViewModel(private val repo: Repository):ViewModel() {
             repo.removeItemFromCart(context,cart_id)
         }
     }
+
+    fun updateMyCart(context: Context, cart_id: String, itemHashMap: HashMap<String, Any>){
+        viewModelScope.launch {
+            repo.updateMyCart(context, cart_id, itemHashMap)
+        }
+    }
 }

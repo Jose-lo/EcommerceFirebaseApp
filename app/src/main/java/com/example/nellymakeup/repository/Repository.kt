@@ -16,4 +16,6 @@ interface Repository {
     suspend fun getCartList(activity: Activity)
     suspend fun getAllProductsList(activity: Activity)
     suspend fun removeItemFromCart(context: Context, cart_id: String)
+    suspend fun updateMyCart(context: Context, cart_id: String, itemHashMap: HashMap<String, Any>)
+
 }
