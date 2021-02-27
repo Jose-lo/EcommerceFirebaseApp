@@ -172,91 +172,50 @@ class FirestoreClass {
                 }
     }
 
-    fun getUserDetails(activity: Activity) {
+    suspend fun getUserDetails(activity: Activity) {
+
+        val document = mFireStore.collection(Constants.USERS)
+            .document(getCurrentUserID())
+            .get().await()
+
+        val user = document.toObject(User::class.java)!!
+        val sharedPreferences =
+            activity.getSharedPreferences(
+                Constants.NELLYMAKEUP_PREFERENCES,
+                Context.MODE_PRIVATE
+            )
+        val editor: SharedPreferences.Editor = sharedPreferences.edit()
+        editor.putString(
+            Constants.LOGGED_IN_USERNAME,
+            "${user.firstName} ${user.lastName}"
+        )
+        editor.apply()
+
+        when (activity) {
+            is LoginActivity -> {
+                activity.userLoggedInSuccess(user)
+            }
+            is SettingsActivity -> {
+                activity.userDetailsSuccess(user)
+            }
+        }
+    }
+
+    suspend fun updateUserProfileData(activity: Activity, userHashMap: HashMap<String, Any>) {
 
         mFireStore.collection(Constants.USERS)
             .document(getCurrentUserID())
-            .get()
-            .addOnSuccessListener { document ->
+            .update(userHashMap).await()
 
-                Log.i(activity.javaClass.simpleName, document.toString())
+        when (activity) {
+            is UserProfileActivity -> {
 
-                val user = document.toObject(User::class.java)!!
-
-                val sharedPreferences =
-                    activity.getSharedPreferences(
-                        Constants.NELLYMAKEUP_PREFERENCES,
-                        Context.MODE_PRIVATE
-                    )
-
-                val editor: SharedPreferences.Editor = sharedPreferences.edit()
-                editor.putString(
-                    Constants.LOGGED_IN_USERNAME,
-                    "${user.firstName} ${user.lastName}"
-                )
-                editor.apply()
-
-
-                when (activity) {
-                    is LoginActivity -> {
-                        activity.userLoggedInSuccess(user)
-                    }
-                    is SettingsActivity -> {
-                        activity.userDetailsSuccess(user)
-                    }
-                }
-
+                activity.userProfileUpdateSuccess()
             }
-            .addOnFailureListener { e ->
-                when (activity) {
-                    is LoginActivity -> {
-                        activity.hideProgressDialog()
-                    }
-                    is SettingsActivity -> {
-                        activity.hideProgressDialog()
-                    }
-                }
+        }
 
-                Log.e(
-                    activity.javaClass.simpleName,
-                    "Error while getting user details.",
-                    e
-                )
-            }
     }
 
-    fun updateUserProfileData(activity: Activity, userHashMap: HashMap<String, Any>) {
-
-        mFireStore.collection(Constants.USERS)
-
-                .document(getCurrentUserID())
-                .update(userHashMap)
-                .addOnSuccessListener {
-
-                    when (activity) {
-                        is UserProfileActivity -> {
-
-                            activity.userProfileUpdateSuccess()
-                        }
-                    }
-
-                }
-                .addOnFailureListener { e ->
-
-                    when (activity) {
-                        is UserProfileActivity -> {
-
-                            activity.hideProgressDialog()
-                        }
-                    }
-
-                    Log.e(
-                            activity.javaClass.simpleName,
-                            "Error while updating the user details.",
-                            e
-                    )
-                }
-    }
     fun uploadImageToCloudStorage(activity: Activity, imageFileURI: Uri?) {
 
         val sRef: StorageReference = FirebaseStorage.getInstance().reference.child(
@@ -302,24 +261,13 @@ class FirestoreClass {
     }
 
 
-    fun addAddress(activity: AddEditAddressActivity, addressInfo: Address) {
+    suspend fun addAddress(activity: AddEditAddressActivity, addressInfo: Address) {
 
         mFireStore.collection(Constants.ADDRESSES)
             .document()
             .set(addressInfo, SetOptions.merge())
-            .addOnSuccessListener {
-
-                activity.addUpdateAddressSuccess()
-
-            }
-            .addOnFailureListener { e ->
-                activity.hideProgressDialog()
-                Log.e(
-                    activity.javaClass.simpleName,
-                    "Error while adding the address.",
-                    e
-                )
-            }
+            .await()
+        activity.addUpdateAddressSuccess()
     }
 
     fun getAddressesList(activity: AddressListActivity) {

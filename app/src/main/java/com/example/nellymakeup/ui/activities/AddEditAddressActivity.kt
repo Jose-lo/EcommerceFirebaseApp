@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
 import android.widget.Toast
+import androidx.activity.viewModels
 import com.example.nellymakeup.R
 import com.example.nellymakeup.application.Constants
 import com.example.nellymakeup.application.hide
@@ -11,11 +12,18 @@ import com.example.nellymakeup.application.show
 import com.example.nellymakeup.application.toast
 import com.example.nellymakeup.data.model.Address
 import com.example.nellymakeup.data.remote.FirestoreClass
+import com.example.nellymakeup.data.remote.RemoteDataSource
 import com.example.nellymakeup.databinding.ActivityAddEditAddressBinding
+import com.example.nellymakeup.presentation.AddAddressSreenViewModel
+import com.example.nellymakeup.presentation.ViewModelFactory
+import com.example.nellymakeup.repository.RepositoryImpl
 import kotlinx.android.synthetic.main.activity_add_edit_address.*
 
 class AddEditAddressActivity : BaseActivity() {
 
+    private val viewmodel by viewModels<AddAddressSreenViewModel> { ViewModelFactory(RepositoryImpl(
+        RemoteDataSource(FirestoreClass())
+    )) }
     private lateinit var binding: ActivityAddEditAddressBinding
     private var mAddressDetails: Address? = null
 
@@ -165,7 +173,7 @@ class AddEditAddressActivity : BaseActivity() {
                     mAddressDetails!!.id
                 )
             } else {
-                FirestoreClass().addAddress(this@AddEditAddressActivity, addressModel)
+                viewmodel.addAddress(this,addressModel)
             }
         }
     }

@@ -4,18 +4,26 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
+import androidx.activity.viewModels
 import com.example.nellymakeup.R
 import com.example.nellymakeup.application.Constants
 import com.example.nellymakeup.application.goToActivity
 import com.example.nellymakeup.application.preferences
 import com.example.nellymakeup.data.model.User
 import com.example.nellymakeup.data.remote.FirestoreClass
+import com.example.nellymakeup.data.remote.RemoteDataSource
 import com.example.nellymakeup.databinding.ActivityLoginBinding
+import com.example.nellymakeup.presentation.LoginScreenViewModel
+import com.example.nellymakeup.presentation.ViewModelFactory
+import com.example.nellymakeup.repository.RepositoryImpl
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : BaseActivity(), View.OnClickListener {
 
+    private val viewmodel by viewModels<LoginScreenViewModel> { ViewModelFactory(RepositoryImpl(
+        RemoteDataSource(FirestoreClass())
+    )) }
     private lateinit var binding:ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -91,7 +99,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
 
                     if (task.isSuccessful) {
 
-                        FirestoreClass().getUserDetails(this@LoginActivity)
+                        viewmodel.getUserDetails(this)
                         preferences?.saveStatusLogin(true)
                     } else {
                         showErrorSnackBar(task.exception!!.message.toString(), true)

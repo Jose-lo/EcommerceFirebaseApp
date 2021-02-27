@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.nellymakeup.R
@@ -17,13 +18,20 @@ import com.example.nellymakeup.application.goToActivity
 import com.example.nellymakeup.application.toast
 import com.example.nellymakeup.data.model.User
 import com.example.nellymakeup.data.remote.FirestoreClass
+import com.example.nellymakeup.data.remote.RemoteDataSource
 import com.example.nellymakeup.databinding.ActivityUserProfileBinding
+import com.example.nellymakeup.presentation.UserProfileScreenViewModel
+import com.example.nellymakeup.presentation.ViewModelFactory
+import com.example.nellymakeup.repository.RepositoryImpl
 import com.example.nmkup.utils.GlideLoader
 import kotlinx.android.synthetic.main.activity_user_profile.*
 import java.io.IOException
 
 class UserProfileActivity : BaseActivity() {
 
+    private val viemodel by viewModels<UserProfileScreenViewModel> { ViewModelFactory(RepositoryImpl(
+        RemoteDataSource(FirestoreClass())
+    )) }
     private lateinit var binding:ActivityUserProfileBinding
     private lateinit var mUserDetails: User
     private var mSelectedImageFileUri: Uri? = null
@@ -224,10 +232,7 @@ class UserProfileActivity : BaseActivity() {
         userHashMap[Constants.GENDER] = gender
         userHashMap[Constants.COMPLETE_PROFILE] = 1
 
-        FirestoreClass().updateUserProfileData(
-            this@UserProfileActivity,
-            userHashMap
-        )
+        viemodel.updateUserProfileData(this,userHashMap)
     }
 
     fun userProfileUpdateSuccess() {

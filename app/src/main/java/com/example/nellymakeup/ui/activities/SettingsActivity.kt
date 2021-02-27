@@ -2,19 +2,27 @@ package com.example.nellymakeup.ui.activities
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.viewModels
 import com.example.nellymakeup.R
 import com.example.nellymakeup.application.Constants
 import com.example.nellymakeup.application.goToActivity
 import com.example.nellymakeup.application.preferences
 import com.example.nellymakeup.data.model.User
 import com.example.nellymakeup.data.remote.FirestoreClass
+import com.example.nellymakeup.data.remote.RemoteDataSource
 import com.example.nellymakeup.databinding.ActivitySettingsBinding
+import com.example.nellymakeup.presentation.SettingsScreenViewModel
+import com.example.nellymakeup.presentation.ViewModelFactory
+import com.example.nellymakeup.repository.RepositoryImpl
 import com.example.nmkup.utils.GlideLoader
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_settings.*
 
 class SettingsActivity : BaseActivity() {
 
+    private val viewModel by viewModels<SettingsScreenViewModel> { ViewModelFactory(RepositoryImpl(
+        RemoteDataSource(FirestoreClass())
+    )) }
     private lateinit var binding:ActivitySettingsBinding
     private lateinit var mUserDetails: User
 
@@ -44,7 +52,7 @@ class SettingsActivity : BaseActivity() {
     private fun getUserDetails() {
 
         showProgressDialog(resources.getString(R.string.please_wait))
-        FirestoreClass().getUserDetails(this@SettingsActivity)
+        viewModel.getUserDetails(this)
     }
 
     fun userDetailsSuccess(user: User) {
