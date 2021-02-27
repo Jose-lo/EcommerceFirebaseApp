@@ -1,6 +1,7 @@
 package com.example.nellymakeup.data.remote
 
 import android.app.Activity
+import android.content.Context
 import com.example.nellymakeup.application.Resource
 import com.example.nellymakeup.data.model.CartItem
 import com.example.nellymakeup.data.model.Product
@@ -30,5 +31,9 @@ class RemoteDataSource(private val firestoreClass: FirestoreClass) {
 
     suspend fun getAllProductsList(activity: Activity){
         firestoreClass.getAllProductsList(activity)
+    }
+
+    suspend fun removeItemFromCart(context: Context, cart_id: String){
+        firestoreClass.removeItemFromCart(context,cart_id)
     }
 }

@@ -11,6 +11,9 @@ import com.example.nellymakeup.R
 import com.example.nellymakeup.application.Constants
 import com.example.nellymakeup.data.model.CartItem
 import com.example.nellymakeup.data.remote.FirestoreClass
+import com.example.nellymakeup.data.remote.RemoteDataSource
+import com.example.nellymakeup.presentation.CartListScreenViewModel
+import com.example.nellymakeup.repository.RepositoryImpl
 import com.example.nellymakeup.ui.activities.CartListActivity
 import com.example.nmkup.utils.GlideLoader
 import kotlinx.android.synthetic.main.item_cart_layout.view.*
@@ -20,6 +23,8 @@ open class CartItemsListAdapter(
     private var list: ArrayList<CartItem>,
     private val updateCartItems: Boolean
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+    private val viewmodel = CartListScreenViewModel(RepositoryImpl(RemoteDataSource(FirestoreClass())))
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
@@ -86,7 +91,7 @@ open class CartItemsListAdapter(
             holder.itemView.ib_remove_cart_item.setOnClickListener {
 
                 if (model.cart_quantity == "1") {
-                    FirestoreClass().removeItemFromCart(context, model.id)
+                    viewmodel.removeItemFromCart(context,model.id)
                 } else {
 
                     val cartQuantity: Int = model.cart_quantity.toInt()
@@ -141,8 +146,7 @@ open class CartItemsListAdapter(
                         context.showProgressDialog(context.resources.getString(R.string.please_wait))
                     }
                 }
-
-                FirestoreClass().removeItemFromCart(context, model.id)
+                viewmodel.removeItemFromCart(context,model.id)
             }
         }
     }

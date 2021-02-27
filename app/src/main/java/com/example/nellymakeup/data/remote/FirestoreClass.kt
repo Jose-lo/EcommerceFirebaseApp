@@ -127,33 +127,17 @@ class FirestoreClass {
     }
 
 
-
-    fun removeItemFromCart(context: Context, cart_id: String) {
+    suspend fun removeItemFromCart(context: Context, cart_id: String) {
 
         mFireStore.collection(Constants.CART_ITEMS)
             .document(cart_id)
-            .delete()
-            .addOnSuccessListener {
+            .delete().await()
 
-                when (context) {
-                    is CartListActivity -> {
-                        context.itemRemovedSuccess()
-                    }
-                }
+        when (context) {
+            is CartListActivity -> {
+                context.itemRemovedSuccess()
             }
-            .addOnFailureListener { e ->
-
-                when (context) {
-                    is CartListActivity -> {
-                        context.hideProgressDialog()
-                    }
-                }
-                Log.e(
-                    context.javaClass.simpleName,
-                    "Error while removing the item from the cart list.",
-                    e
-                )
-            }
+        }
     }
 
     fun updateMyCart(context: Context, cart_id: String, itemHashMap: HashMap<String, Any>) {

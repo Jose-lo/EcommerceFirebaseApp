@@ -1,6 +1,7 @@
 package com.example.nellymakeup.repository
 
 import android.app.Activity
+import android.content.Context
 import com.example.nellymakeup.application.Resource
 import com.example.nellymakeup.data.model.CartItem
 import com.example.nellymakeup.data.model.Product
@@ -14,4 +15,5 @@ interface Repository {
     suspend fun checkIfItemExistInCart(activity: DetailsActivity, productId: String)
     suspend fun getCartList(activity: Activity)
     suspend fun getAllProductsList(activity: Activity)
+    suspend fun removeItemFromCart(context: Context, cart_id: String)
 }

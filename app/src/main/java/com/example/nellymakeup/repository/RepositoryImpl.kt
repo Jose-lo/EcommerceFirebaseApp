@@ -1,6 +1,7 @@
 package com.example.nellymakeup.repository
 
 import android.app.Activity
+import android.content.Context
 import com.example.nellymakeup.application.Resource
 import com.example.nellymakeup.data.model.CartItem
 import com.example.nellymakeup.data.model.Product
@@ -31,5 +32,9 @@ class RepositoryImpl(private val remoteDataSource: RemoteDataSource): Repository
 
     override suspend fun getAllProductsList(activity: Activity) {
         remoteDataSource.getAllProductsList(activity)
+    }
+
+    override suspend fun removeItemFromCart(context: Context, cart_id: String) {
+        remoteDataSource.removeItemFromCart(context,cart_id)
     }
 }
